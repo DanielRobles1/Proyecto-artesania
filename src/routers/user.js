@@ -7,6 +7,7 @@ const User = require('../models/user');
 // Registrar usuario
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
+    console.log({name})
 
     try {
         // Verificar si el usuario ya existe
@@ -74,6 +75,8 @@ const verifyToken = (req, res, next) => {
         res.status(400).json({ message: 'Token inválido' });
     }
 };
+
+
 
 // Obtener perfil de usuario (ruta protegida)
 router.get('/profile', verifyToken, async (req, res) => {
